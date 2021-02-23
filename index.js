@@ -1,10 +1,11 @@
-const { ApolloServer } = require("apollo-server");
+const { ApolloServer, PubSub } = require("apollo-server");
 const mongoose = require("mongoose");
 
 const config = require("./config/key");
 const resolvers = require("./graphql/resolvers");
 const typeDefs = require("./graphql/typedefs");
 
+const pubsub = new PubSub();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
